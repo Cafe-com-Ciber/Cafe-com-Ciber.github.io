@@ -41,7 +41,7 @@ async function build() {
     console.log("🎨 CSS copiado.");
 
     // 2. Copia favicon.ico para a raiz do site
-    const faviconSource = path.join(assetsPath, "icons", "icon-cafe-ciber.png");
+    const faviconSource = path.join(assetsPath, "favicons", "favicon-32x32.png");
     const faviconDest = path.join(sitePath, "favicon.ico");
     await fs.copy(faviconSource, faviconDest);
     console.log("📌 Favicon copiado.");
@@ -75,9 +75,8 @@ async function build() {
 }
 
 // ==================================================================
-// FUNÇÕES AUXILIARES
+// MONTA HTML — processa os includes
 // ==================================================================
-
 async function montarPaginaSimples(nomeDoArquivo) {
   console.log(`📄 Montando a página simples: ${nomeDoArquivo}`);
 
