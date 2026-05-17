@@ -1,0 +1,205 @@
+@use "sass:color";
+@use "sass:map";
+@use "./variables" as *;
+@use "./colors" as *;
+@use "./functions" as *;
+
+$theme-colors: (
+  "color-primary-1": $primary-color-10,
+  "color-primary-2": $primary-color-20,
+  "color-primary-3": $primary-color-30,
+  "color-primary-4": $primary-color-40,
+  "color-primary-5": $primary-color-50,
+  "color-primary-6": $primary-color-60,
+  "color-primary-7": $primary-color-70,
+  "color-primary-8": $primary-color-80,
+  "color-primary-9": $primary-color-90,
+"color-primary-10": $primary-color-100,
+
+  "color-secondary-1": $secondary-color-10,
+  "color-secondary-2": $secondary-color-20,
+  "color-secondary-3": $secondary-color-30,
+  "color-secondary-4": $secondary-color-40,
+  "color-secondary-5": $secondary-color-50,
+  "color-secondary-6": $secondary-color-60,
+  "color-secondary-7": $secondary-color-70,
+  "color-secondary-8": $secondary-color-80,
+  "color-secondary-9": $secondary-color-90,
+"color-secondary-10": $secondary-color-100,
+  "color-accent-1": $color-accent-10,
+  "color-accent-2": $color-accent-20,
+  "color-accent-3": $color-accent-30,
+  "color-accent-4": $color-accent-40,
+  "color-accent-5": $color-accent-50,
+  "color-accent-6": $color-accent-60,
+  "color-accent-7": $color-accent-70,
+  "color-accent-8": $color-accent-80,
+  "color-accent-9": $color-accent-90,
+
+  "color-support-primary-1": $primary-support-10,
+  "color-support-primary-2": $primary-support-20,
+  "color-support-primary-3": $primary-support-30,
+  "color-support-primary-4": $primary-support-40,
+  "color-support-primary-5": $primary-support-50,
+  "color-support-primary-6": $primary-support-60,
+  "color-support-primary-7": $primary-support-70,
+  "color-support-primary-8": $primary-support-80,
+  "color-support-primary-9": $primary-support-90,
+
+  "color-support-secondary-1": $secondary-support-10,
+  "color-support-secondary-2": $secondary-support-20,
+  "color-support-secondary-3": $secondary-support-30,
+  "color-support-secondary-4": $secondary-support-40,
+  "color-support-secondary-5": $secondary-support-50,
+  "color-support-secondary-6": $secondary-support-60,
+  "color-support-secondary-7": $secondary-support-70,
+  "color-support-secondary-8": $secondary-support-80,
+  "color-support-secondary-9": $secondary-support-90,
+
+  "neutral-1": $neutral-10,
+  "neutral-2": $neutral-20,
+  "neutral-3": $neutral-30,
+  "neutral-4": $neutral-40,
+  "neutral-5": $neutral-50,
+  "neutral-6": $neutral-60,
+  "neutral-7": $neutral-70,
+  "neutral-8": $neutral-80,
+  "neutral-9": $neutral-90,
+);
+
+$base-colors: (
+  "black": $black,
+  "white": $white,
+);
+
+$typography: (
+  "font-logo": $font-logo,
+  "font-heading": $font-title,
+  "font-text": $font-text,
+  "font-mono": $font-code,
+);
+
+// Pesos
+$font-weights: (
+  "light": $font-weight-light,
+  "regular": $font-weight-normal,
+  "medium": $font-weight-medium,
+  "semibold": $font-weight-semibold,
+  "bold": $font-weight-bold,
+  "extrabold": $font-weight-extrabold,
+  "black": $font-weight-black,
+);
+
+//  Espaçamento
+$tokens-font-size: (
+  font-size-xs: 0.625rem,
+  font-size-sm: 0.875rem,
+  font-size-base: 1rem,
+  font-size-md: $spacing-base  + $spacing-base * 0.5,
+);
+
+// Espaçamentos automáticos
+$font-size-automatic: ();
+@for $i from 2 through $font-size-variation {
+  $tokens-font-size: map.merge(
+    $tokens-font-size,
+    (
+      "font-size-#{$i}x": $font-size-base * $i,
+    )
+  );
+  $tokens-font-size: map.merge(
+    $tokens-font-size,
+    (
+      "font-size#{$i}xh": $font-size-base * $i + $font-size-base * 0.5,
+    )
+  );
+}
+
+$tokens-line-height: (
+  heading: $line-height-heading,
+  body: $line-height-body,
+  high: $line-height-loose,
+);
+
+//  Espaçamento
+$tokens-spacing: (
+  spacing-default: 0,
+  spacing-half: $spacing-base * 0.5,
+  spacing-base: $spacing-base,
+  spacing-baseh: $spacing-base  + $spacing-base * 0.5,
+);
+
+// Espaçamentos automáticos
+$spacing-automatic: ();
+@for $i from 2 through $spacing-variation {
+  $tokens-spacing: map.merge(
+    $tokens-spacing,
+    (
+      "spacing-#{$i}x": $spacing-base * $i,
+    )
+  );
+  $tokens-spacing: map.merge(
+    $tokens-spacing,
+    (
+      "spacing-#{$i}xh": $spacing-base * $i + $spacing-base * 0.5,
+    )
+  );
+}
+
+$border-radius: (
+  "sm": $border-radius-sm,
+  "md": $border-radius-md,
+  "lg": $border-radius-lg,
+  "base": $border-radius-base,
+  "xxl": $border-radius-xxl,
+  "pill": $border-radius-pill,
+);
+
+$grid-breakpoints: (
+  "sm": $grid-breakpoint-sm,
+  "md": $grid-breakpoint-md,
+  "lg": $grid-breakpoint-lg,
+  "xl": $grid-breakpoint-xl,
+);
+
+$breakpoints-name: (
+  "sm": "portrait",
+  "md": "tablet",
+  "lg": "desktop",
+  "xl": "tv",
+);
+
+$container-max-widths: (
+  "sm": $container-max-width-sm,
+  "md": $container-max-width-md,
+  "lg": $container-max-width-lg,
+  "xl": $container-max-width-xl,
+);
+
+$grid-columns: (
+  "sm": $grid-portrait-columns,
+  "md": $grid-tablet-columns,
+  "lg": $grid-columns-base,
+  "xl": $grid-columns-base,
+);
+
+$grid-gutter-width: (
+  "sm": $grid-portrait-gutter,
+  "md": $grid-base-gutter,
+  "lg": $grid-base-gutter,
+  "xl": $grid-base-gutter,
+);
+
+$grid-margin: (
+  "sm": $grid-portrait-margin,
+  "md": $grid-base-margin,
+  "lg": $grid-base-margin,
+  "xl": $grid-base-margin,
+);
+
+$border-width: (
+  "sm": $border-width-base,
+  "md": $border-width-md,
+  "lg": $border-width-lg,
+  "xl": $border-width-xl,
+);

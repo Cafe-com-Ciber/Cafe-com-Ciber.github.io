@@ -1,0 +1,23 @@
+@use "../abstracts" as *;
+
+:root {
+  /* theme-colors */
+  @include theme-colors;
+  /* base-colors */
+  @include base-colors;
+  /* tipografia */
+  @include typography;
+  /* tamanhos da fonte */
+  @include tokens-font-size;
+  /* altura da linha */
+  @include tokens-line-height;
+  /* peso da fonte */
+  @include tokens-font-weights;
+  /* espaçamento */
+  @include tokens-spacing;
+  /* arredondamento das bordas */
+  @include tokens-border-radius;
+}
+
+@include container-classes;
+@include make-grid-columns;

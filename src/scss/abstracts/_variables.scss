@@ -1,0 +1,83 @@
+// Paleta de Cores
+$primary-color: rgb(75, 0, 130); //--purple-deep
+$secondary-color: rgb(121, 40, 202); //--purple-vibrant
+$color-accent: rgb(67, 97, 238); //--blue
+$primary-support: rgb(255, 234, 0);
+$secondary-support: rgb(207, 2, 176);
+$neutral: rgb(230, 231, 255); //--lilac-soft
+
+// Base colors
+$black: rgb(0, 0, 0);
+$white: rgb(255, 255, 255);
+
+// Tipografia
+$font-logo: "Poly", serif;
+$font-title: "Lora", serif;
+$font-text: "Inter", sans-serif;
+$font-code: "JetBrains Mono", monospace;
+
+// Tipografia — Tamanhos
+$font-size-base: 1rem;
+$font-size-variation: 10;
+
+// Tipografia — Pesos
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-extrabold: 800;
+$font-weight-black: 900;
+
+// Tipografia — Altura de Linha
+$line-height-heading: 1.15;
+$line-height-body: 1.45;
+$line-height-loose: 1.85;
+
+//  Espaçamento
+$spacing-base: 1rem;
+$spacing-variation: 10;
+
+// Grid — Breakpoints
+$grid-breakpoint-sm: 600px;
+$grid-breakpoint-md: 960px;
+$grid-breakpoint-lg: 1280px;
+$grid-breakpoint-xl: 1920px;
+
+// Grid — Colunas
+$grid-portrait-columns: 4;
+$grid-tablet-columns: 8;
+$grid-columns-base: 12;
+
+// Grid — Gutter
+$grid-portrait-gutter: 1rem;
+$grid-base-gutter: 1.5rem;
+
+// Grid — Row
+$grid-row-columns: 6;
+
+// Grid - Margin
+$grid-portrait-margin: 8px;
+$grid-base-margin: 40px;
+
+// Grid — Container
+$container-max-width-sm: 960px;
+$container-max-width-md: 1280px;
+$container-max-width-lg: 1920px;
+$container-max-width-xl: 2560px;
+ 
+// Bordas
+$border-width-base: 1px;
+$border-width-md: 2px;
+$border-width-lg: 3px;
+$border-width-xl: 4px;
+
+$border-style: solid;
+$border-color: tint-color($black, 40%);
+
+$border-radius-sm: 0.25rem;
+$border-radius-md: 0.375rem;
+$border-radius-lg: 0.5rem;
+$border-radius-base: 1rem;
+$border-radius-xxl: 2rem;
+$border-radius-pill: 9999px;

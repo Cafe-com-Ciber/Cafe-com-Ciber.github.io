@@ -1,0 +1,65 @@
+@use "sass:color";
+@use "./variables" as *;
+@use "./functions" as *;
+
+$primary-color-10: tint-color($primary-color, 80%); // mais claro
+$primary-color-20: tint-color($primary-color, 60%);
+$primary-color-30: tint-color($primary-color, 40%);
+$primary-color-40: tint-color($primary-color, 20%);
+$primary-color-50: $primary-color; // base
+$primary-color-60: shade-color($primary-color, 20%);
+$primary-color-70: shade-color($primary-color, 40%);
+$primary-color-80: shade-color($primary-color, 60%);
+$primary-color-90: shade-color($primary-color, 80%); // mais escuro
+$primary-color-100: shade-color($primary-color, 90%);
+
+$secondary-color-10: tint-color($secondary-color, 80%); // mais claro
+$secondary-color-20: tint-color($secondary-color, 60%);
+$secondary-color-30: tint-color($secondary-color, 40%);
+$secondary-color-40: tint-color($secondary-color, 20%);
+$secondary-color-50: $secondary-color; // base
+$secondary-color-60: shade-color($secondary-color, 20%);
+$secondary-color-70: shade-color($secondary-color, 40%);
+$secondary-color-80: shade-color($secondary-color, 60%);
+$secondary-color-90: shade-color($secondary-color, 80%); // mais escuro
+$secondary-color-100: shade-color($secondary-color, 90%);
+
+$color-accent-10: tint-color($color-accent, 80%); // mais claro
+$color-accent-20: tint-color($color-accent, 60%);
+$color-accent-30: tint-color($color-accent, 40%);
+$color-accent-40: tint-color($color-accent, 20%);
+$color-accent-50: $color-accent; // base
+$color-accent-60: shade-color($color-accent, 20%);
+$color-accent-70: shade-color($color-accent, 40%);
+$color-accent-80: shade-color($color-accent, 60%);
+$color-accent-90: shade-color($color-accent, 80%); // mais escuro
+
+$primary-support-10: tint-color($primary-support, 80%); // mais claro
+$primary-support-20: tint-color($primary-support, 60%);
+$primary-support-30: tint-color($primary-support, 40%);
+$primary-support-40: tint-color($primary-support, 20%);
+$primary-support-50: $primary-support; // base
+$primary-support-60: shade-color($primary-support, 20%);
+$primary-support-70: shade-color($primary-support, 40%);
+$primary-support-80: shade-color($primary-support, 60%);
+$primary-support-90: shade-color($primary-support, 80%); // mais escuro
+
+$secondary-support-10: tint-color($secondary-support, 80%); // mais claro
+$secondary-support-20: tint-color($secondary-support, 60%);
+$secondary-support-30: tint-color($secondary-support, 40%);
+$secondary-support-40: tint-color($secondary-support, 20%);
+$secondary-support-50: $secondary-support; // base
+$secondary-support-60: shade-color($secondary-support, 20%);
+$secondary-support-70: shade-color($secondary-support, 40%);
+$secondary-support-80: shade-color($secondary-support, 60%);
+$secondary-support-90: shade-color($secondary-support, 80%); // mais escuro
+
+$neutral-10: tint-color($neutral, 80%); // mais claro
+$neutral-20: tint-color($neutral, 60%);
+$neutral-30: tint-color($neutral, 40%);
+$neutral-40: tint-color($neutral, 20%);
+$neutral-50: $neutral; // base
+$neutral-60: shade-color($neutral, 20%);
+$neutral-70: shade-color($neutral, 40%);
+$neutral-80: shade-color($neutral, 60%);
+$neutral-90: shade-color($neutral, 80%); // mais escuro

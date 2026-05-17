@@ -1,0 +1,205 @@
+@use "sass:color";
+@use "sass:list";
+@use "sass:map";
+@use "sass:math";
+@use "sass:meta";
+@use "./variables" as *;
+@use "./colors" as *;
+@use "./maps" as *;
+@use "./functions" as *;
+
+@mixin theme-colors() {
+  @each $color, $value in $theme-colors {
+    --#{$color}: #{$value};
+  }
+}
+
+@mixin base-colors() {
+  @each $color, $value in $base-colors {
+    --color-#{$color}: #{$value};
+  }
+}
+
+@mixin typography() {
+  @each $type, $value in $typography {
+    --#{$type}: #{$value};
+  }
+}
+
+// Criar tokens de tipografia
+@mixin tokens-font-weights() {
+  @each $type, $value in $font-weights {
+    --font-weight-#{$type}: #{$value};
+  }
+}
+
+@mixin tokens-font-size() {
+  @each $type, $value in $tokens-font-size {
+    --#{$type}: #{$value};
+  }
+}
+
+@mixin tokens-line-height() {
+  @each $type, $value in $tokens-line-height {
+    --line-height-#{$type}: #{$value};
+  }
+}
+
+@mixin tokens-spacing() {
+  @each $type, $value in $tokens-spacing {
+    --#{$type}: #{$value};
+  }
+}
+
+@mixin tokens-border-radius() {
+  @each $type, $value in $border-radius {
+    --radius-#{$type}: #{$value};
+  }
+}
+
+@mixin make-container($gutter: $grid-base-gutter) {
+  --gutter-x: #{$gutter};
+  --gutter-y: 0;
+  width: 100%;
+  padding-right: calc(var(--gutter-x) * 0.5);
+  padding-left: calc(var(--gutter-x) * 0.5);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@mixin media-breakpoint-up($name, $breakpoints: $grid-breakpoints) {
+  $min: breakpoint-min($name, $breakpoints);
+  @if $min {
+    @media (min-width: $min) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+@mixin container-classes {
+  .container,
+  .container-fluid {
+    @include make-container();
+  }
+
+  @each $breakpoint, $container-max-width in $container-max-widths {
+    .container-#{$breakpoint} {
+      @extend .container-fluid;
+    }
+
+    @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+      %responsive-container-#{$breakpoint} {
+        max-width: $container-max-width;
+      }
+
+      $extend-breakpoint: true;
+
+      @each $name, $width in $grid-breakpoints {
+        @if ($extend-breakpoint) {
+          .container#{breakpoint-infix($name, $grid-breakpoints)} {
+            @extend %responsive-container-#{$breakpoint};
+          }
+
+          @if ($breakpoint == $name) {
+            $extend-breakpoint: false;
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin make-col($size: false, $columns: $grid-columns-base) {
+  @if $size {
+    flex: 0 0 auto;
+    width: math.percentage(divide($size, $columns));
+  } @else {
+    flex: 1 1 0;
+    max-width: 100%;
+  }
+}
+
+@mixin make-col-offset($size, $columns: $grid-columns-base) {
+  $num: divide($size, $columns);
+  @if $num == 0 {
+    margin-left: 0;
+  } @else {
+    margin-left: math.percentage($num);
+  }
+}
+
+@mixin make-col-auto() {
+  flex: 0 0 auto;
+  width: auto;
+}
+
+@mixin row-cols($count) {
+  > * {
+    flex: 0 0 auto;
+    width: math.percentage(math.div(1, $count));
+  }
+}
+
+@mixin make-grid-columns($columns: $grid-columns, $gutter: $grid-gutter-width, $breakpoints: $grid-breakpoints, $gutters: ()) {
+  @each $breakpoint in map.keys($breakpoints) {
+    $infix: breakpoint-infix($breakpoint, $breakpoints);
+
+    $cols: $columns;
+    @if meta.type-of($columns) == 'map' {
+      $cols: map.get($columns, $breakpoint);
+    }
+
+    @include media-breakpoint-up($breakpoint, $breakpoints) {
+
+      .col#{$infix} {
+        flex: 1 0 0;
+      }
+
+      .row-cols#{$infix}-auto > * {
+        @include make-col-auto();
+      }
+
+      @if $grid-row-columns > 0 {
+        @for $i from 1 through $grid-row-columns {
+          .row-cols#{$infix}-#{$i} {
+            @include row-cols($i);
+          }
+        }
+      }
+
+      .col#{$infix}-auto {
+        @include make-col-auto();
+      }
+
+      @if $cols and $cols > 0 {
+        @for $i from 1 through $cols {
+          .col#{$infix}-#{$i} {
+            @include make-col($i, $cols);
+          }
+        }
+
+        @for $i from 0 through ($cols - 1) {
+          @if not ($infix == "" and $i == 0) {
+            .offset#{$infix}-#{$i} {
+              @include make-col-offset($i, $cols);
+            }
+          }
+        }
+      }
+
+      @each $key, $value in $gutters {
+        .g#{$infix}-#{$key},
+        .gx#{$infix}-#{$key} {
+          --#{$prefix}gutter-x: #{$value};
+        }
+
+        .g#{$infix}-#{$key},
+        .gy#{$infix}-#{$key} {
+          --#{$prefix}gutter-y: #{$value};
+        }
+      }
+    }
+  }
+}
