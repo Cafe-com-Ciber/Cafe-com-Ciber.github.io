@@ -1,14 +1,14 @@
 /* =============================
      NAVBAR
      ============================= */
-.nav-bar {
-  position: sticky;
+.nav {
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 100;
-  padding: var(--spacing-half) var(--spacing-4xh);
-  background-color: var(--background-header-footer);
+  padding: 0 var(--spacing-2x);
+  background: var(--background-header);
   transition:
     background 0.3s ease,
     backdrop-filter 0.3s ease,
@@ -21,7 +21,7 @@
   background: var(--nav-bg-scrolled);
   backdrop-filter: saturate(180%) blur(14px);
   -webkit-backdrop-filter: saturate(180%) blur(14px);
-  padding: 12px 0;
+  padding: var(--spacing-half) var(--spacing-2x);
   box-shadow: 0 1px 0 var(--line);
 }
 
@@ -29,27 +29,18 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
+  gap: var(--spacing-baseh);
 }
 
 .nav-brand {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  font-family: "Poly", serif;
-  font-size: 2rem;
+  gap: var(--spacing-base);
+  font-family: var(--font-logo);
+  font-weight: var(--font-weight-semibold);
+  font-size: clamp(var(--font-size-md), 2vh, var(--font-size-2xh));
   color: var(--ink);
   letter-spacing: -0.01em;
-}
-
-.nav.is-hero .nav-brand,
-.nav.is-hero .nav-link {
-  color: #fff;
-}
-
-.nav.is-hero.scrolled .nav-brand,
-.nav.is-hero.scrolled .nav-link {
-  color: var(--ink);
 }
 
 .nav-logo {
@@ -58,44 +49,26 @@
   background: transparent;
   display: grid;
   place-items: center;
-  color: #fff;
-  flex-shrink: 0;
-}
-
-.nav-logo span {
-  display: block;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: var(--purple-vibrant);
 }
 
 .nav-links {
   display: flex;
-  gap: 32px;
+  gap: var(--spacing-2x);
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
 .nav-link {
-  font-size: 0.9375rem;
-  font-weight: 500;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
   color: var(--ink);
   position: relative;
   transition: color 0.2s ease;
 }
 
-.nav-link:hover {
-  color: var(--purple-vibrant);
-}
-
-.nav.is-hero .nav-link:hover {
-  color: var(--lilac-soft);
-}
-
-.nav.is-hero.scrolled .nav-link:hover {
-  color: var(--purple-vibrant);
+.nav-link a:hover {
+  color: var(--color-accent-1);
 }
 
 /* Theme toggle */
@@ -106,7 +79,7 @@
   display: grid;
   place-items: center;
   color: var(--ink);
-  background: var(--linha-num-bg);
+  background: var(--linha-num-background);
   border: 1px solid var(--line);
   transition:
     background 0.2s ease,
@@ -118,17 +91,16 @@
 
 .theme-toggle:hover {
   transform: translateY(-1px);
-  background: var(--pill-bg);
+  background: var(--pill-background);
 }
 
-.nav.is-hero:not(.scrolled) .theme-toggle {
-  color: #fff;
+.nav:not(.scrolled) .theme-toggle {
+  color: var(--text-inverse);
   background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.2);
 }
 
-.nav.is-hero:not(.scrolled) .theme-toggle:hover {
-  background: rgba(255, 255, 255, 0.22);
+.nav:not(.scrolled) .theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.18);
 }
 
 .theme-toggle svg {
@@ -150,14 +122,14 @@
 .nav-actions {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: var(--spacing-base);
 }
 
 .nav-toggle {
   display: none;
   width: 40px;
   height: 40px;
-  border-radius: 10px;
+  border-radius: var(--radius-sm);
   padding: 0;
   position: relative;
 }
@@ -206,8 +178,8 @@
     color: var(--ink);
   }
 
-  .nav.is-hero:not(.scrolled) .nav-toggle {
-    color: #fff;
+  .nav:not(.scrolled) .nav-toggle {
+    color: var(--color-white);
   }
 
   .nav-links {
@@ -218,8 +190,8 @@
     height: 100vh;
     flex-direction: column;
     background: var(--mobile-nav-bg);
-    padding: 96px 32px 32px;
-    gap: 8px;
+    padding: var(--spacing-6x) var(--spacing-2x) var(--spacing-2x);
+    gap: var(--spacing-half);
     transform: translateX(100%);
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: -20px 0 60px rgba(75, 0, 130, 0.18);
