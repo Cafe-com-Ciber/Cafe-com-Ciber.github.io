@@ -11,7 +11,8 @@
     "changelog": "node scripts/update-changelog.mjs",
     "build": "node scripts/build.mjs",
     "build:watch": "nodemon --watch src --ext html,js --exec \"node scripts/build.mjs\"",
-    "dev": "concurrently --names SCSS,HTML \"npm run sass:watch\" \"npm run build:watch\""
+    "serve": "browser-sync start --server site --files \"site/**/*\" --no-notify --open",
+    "dev": "concurrently --names SCSS,HTML,SERVER \"npm run sass:watch\" \"npm run build:watch\" \"npm run serve\""
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,7 @@
   },
   "homepage": "https://github.com/Cafe-com-Ciber/Cafe-com-Ciber.github.io#readme",
   "devDependencies": {
+    "browser-sync": "^3.0.3",
     "concurrently": "^9.1.2",
     "fs-extra": "^11.2.0",
     "nodemon": "^3.1.10",
