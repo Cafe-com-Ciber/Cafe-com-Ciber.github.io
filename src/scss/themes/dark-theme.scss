@@ -1,42 +1,38 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/colors" as *;
+
+
 [data-theme="dark"] {
   --background: rgb(10, 5, 32);
   --background-alt: rgb(17, 10, 42);
-  --background-header: var(--color-primary-10);
-  --background-hero: radial-gradient(
-      ellipse 80% 60% at 20% 30%,
-      rgba(75, 0, 130, 0.55),
-      transparent 60%
-    ),
-    radial-gradient(
-      ellipse 70% 60% at 85% 75%,
-      rgba(67, 97, 238, 0.35),
-      transparent 60%
-    );
-    --background-hero-vignette: radial-gradient(
-    ellipse 55% 65% at 30% 50%,
-    rgba(8, 4, 26, 0.85) 0%,
-    rgba(8, 4, 26, 0.55) 35%,
-    transparent 75%
-  );
+  --background-header: #{$primary-color-90};
 
+  --text-inverse: var(--neutral-6);
   --color-accent-1: var(--color-support-primary-5);
-
 
   --card: rgb(22, 16, 46);
   --card-2: rgb(26, 20, 58);
+
   --ink: rgb(236, 233, 255);
   --ink-soft: rgb(168, 162, 204);
-  --line: rgba(255, 255, 255, 0.08);
-  --chip-bg: rgba(120, 150, 255, 0.12);
+
+  --line: rgba(135, 4, 4, 0.08);
+
+  --chip-background: rgba(120, 150, 255, 0.12);
   --chip-ink: rgb(168, 184, 255);
 
   --pill-background: rgba(180, 140, 255, 0.14);
-  --pill-ink: rgb(200, 168, 255);
+  --pill-ink: rgb(79, 78, 81);
+
+  --btn-primary-bg: rgb(255, 255, 255);
+  --btn-primary-ink: #{$primary-color};
 
   --avatar-grid: rgba(180, 160, 255, 0.06);
   --avatar-ink: rgba(200, 180, 255, 0.4);
-  --linha-num-bg: rgba(180, 140, 255, 0.14);
-  --pillar-icon-bg: linear-gradient(
+
+  --linha-num-background: rgba(180, 140, 255, 0.14);
+
+  --pillar-icon-background: linear-gradient(
     135deg,
     rgba(180, 140, 255, 0.16),
     rgba(120, 150, 255, 0.16)
@@ -45,6 +41,14 @@
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.25);
   --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.4), 0 8px 40px rgba(75, 0, 130, 0.25);
   --shadow-lg: 0 16px 50px rgba(0, 0, 0, 0.5);
+
+  --grad-primary: linear-gradient(
+    135deg,
+    #4b0082 0%,
+    #7928ca 55%,
+    #4361ee 100%
+  );
+  --grad-subtle: linear-gradient(135deg, #4b0082 0%, #7928ca 100%);
 
   --nav-bg-scrolled: rgba(10, 5, 32, 0.82);
   --mobile-nav-bg: rgb(22, 16, 46);

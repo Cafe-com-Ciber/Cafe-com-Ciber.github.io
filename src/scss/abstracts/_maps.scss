@@ -110,7 +110,7 @@ $font-size-automatic: ();
   $tokens-font-size: map.merge(
     $tokens-font-size,
     (
-      "font-size#{$i}xh": $font-size-base * $i + $font-size-base * 0.5,
+      "font-size-#{$i}xh": $font-size-base * $i + $font-size-base * 0.5,
     )
   );
 }
@@ -126,7 +126,8 @@ $tokens-spacing: (
   spacing-default: 0,
   spacing-half: $spacing-base * 0.5,
   spacing-base: $spacing-base,
-  spacing-baseh: $spacing-base  + $spacing-base * 0.5,
+  spacing-md: $spacing-base  + $spacing-base * 0.5,
+  spacing-lg: $spacing-base  + $spacing-base * 0.75,
 );
 
 // Espaçamentos automáticos
