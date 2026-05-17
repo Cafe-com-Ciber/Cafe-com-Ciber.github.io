@@ -1,6 +1,6 @@
-import ThemeToggle from "./components/theme-toggle";
-import MenuToggle from "./components/menu-toggle";
-import MatrixHero from "./components/matrix-hero";
+import ThemeToggle from "./components/theme-toggle.js";
+import MenuToggle from "./components/menu-toggle.js";
+import MatrixHero from "./components/matrix-hero.js";
 
 new ThemeToggle();
 new MenuToggle();

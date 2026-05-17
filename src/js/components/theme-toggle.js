@@ -1,16 +1,24 @@
 class ThemeToggle {
   constructor() {
-    document.addEventListener("DOMContentLoaded", () => {
-      const temaToggle = document.querySelector(".theme-toggle");
-      const html = document.documentElement;
+    try {
+      const saved = localStorage.getItem("ccc-theme");
+      const prefersDark =
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const theme = saved || (prefersDark ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", theme);
+    } catch (e) {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
 
-      // Verifica se o botão existe
+    document.addEventListener("DOMContentLoaded", () => {
+      const themeToggle = document.getElementById("themeToggle");
+
       if (!themeToggle) {
-        console.warn("Botão .theme-toggle não encontrado");
+        console.warn("Botão #themeToggle não encontrado");
         return;
       }
-      // THEME: read + toggle (early script in <head> handles initial flash prevention)
-      const themeToggle = document.getElementById("themeToggle");
+
       function applyTheme(t) {
         document.documentElement.setAttribute("data-theme", t);
         themeToggle.setAttribute(
@@ -22,9 +30,11 @@ class ThemeToggle {
           t === "dark" ? "Ativar tema claro" : "Ativar tema escuro",
         );
       }
+
       applyTheme(
         document.documentElement.getAttribute("data-theme") || "light",
       );
+
       themeToggle.addEventListener("click", () => {
         const next =
           document.documentElement.getAttribute("data-theme") === "dark"
@@ -36,20 +46,6 @@ class ThemeToggle {
         applyTheme(next);
       });
     });
-
-    // Apply saved theme immediately to avoid flash. Falls back to OS preference.
-    (function () {
-      try {
-        var saved = localStorage.getItem("ccc-theme");
-        var prefersDark =
-          window.matchMedia &&
-          window.matchMedia("(prefers-color-scheme: dark)").matches;
-        var theme = saved || (prefersDark ? "dark" : "light");
-        document.documentElement.setAttribute("data-theme", theme);
-      } catch (e) {
-        document.documentElement.setAttribute("data-theme", "light");
-      }
-    })();
   }
 }
 

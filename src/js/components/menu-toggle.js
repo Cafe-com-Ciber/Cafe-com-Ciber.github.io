@@ -4,49 +4,41 @@ class MenuToggle {
     }
 
     init() {
-        this.navToggle = document.querySelector(".nav-toggle");
-        this.nav = this.getNavMenu();
+        const nav = document.getElementById('nav');
+        const navLinks = document.getElementById('navLinks');
+        const navToggle = document.getElementById('navToggle');
+        const hero = document.querySelector('.hero');
 
-        if (!this.navToggle || !this.nav) {
+        if (!navToggle || !navLinks || !nav) {
             console.warn("Elementos do menu mobile não encontrados");
             return;
         }
 
-        this.setMenu(false);
-        this.initMenu();
+        const onScroll = () => {
+            const y = window.scrollY;
+            nav.classList.toggle('scrolled', y > 12);
+            if (hero) {
+                const heroBottom = hero.offsetTop + hero.offsetHeight - 80;
+                nav.classList.toggle('is-hero', y < heroBottom);
+            }
+        };
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+
+        navToggle.addEventListener('click', () => {
+            const open = navLinks.classList.toggle('open');
+            navToggle.setAttribute('aria-expanded', String(open));
+            navToggle.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+        });
+
+        navLinks.querySelectorAll('a').forEach(a => {
+            a.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+                navToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
     }
-
-    // NAV: scroll state + mobile toggle
-    const nav = document.getElementById('nav');
-    const navLinks = document.getElementById('navLinks');
-    const navToggle = document.getElementById('navToggle');
-    const hero = document.querySelector('.hero');
-
-    const onScroll = () => {
-        const y = window.scrollY;
-        nav.classList.toggle('scrolled', y > 12);
-        if (hero) {
-            const heroBottom = hero.offsetTop + hero.offsetHeight - 80;
-            nav.classList.toggle('is-hero', y < heroBottom);
-        }
-    };
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-
-    navToggle.addEventListener('click', () => {
-    const open = navLinks.classList.toggle('open');
-    navToggle.setAttribute('aria-expanded', String(open));
-    navToggle.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
-});
-
-navLinks.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => {
-        navLinks.classList.remove('open');
-        navToggle.setAttribute('aria-expanded', 'false');
-    });
-});
-
-    }
+}
 
 export default MenuToggle;
