@@ -1,0 +1,25 @@
+{
+  "name": "cafe-com-ciber.github.io",
+  "version": "1.0.0",
+  "description": "Landing page oficial da Liga Acadêmica de Cibersegurança Café com Ciber – CEUB",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass:watch": "sass --watch src/scss/core-main.scss dist/css/core-main.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cafe-com-Ciber/Cafe-com-Ciber.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Cafe-com-Ciber/Cafe-com-Ciber.github.io/issues"
+  },
+  "homepage": "https://github.com/Cafe-com-Ciber/Cafe-com-Ciber.github.io#readme",
+  "devDependencies": {
+    "sass": "^1.99.0"
+  }
+}
