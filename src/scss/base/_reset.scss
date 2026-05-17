@@ -1,5 +1,5 @@
 /* =============================
-     RESET + TOKENS
+     RESET
      ============================= */
 *,
 *::before,
@@ -14,13 +14,9 @@ html {
 
 body {
   margin: 0;
-  font-family:
-    "Inter",
-    system-ui,
-    -apple-system,
-    sans-serif;
-  font-weight: 400;
-  font-size: 16px;
+  font-family: var(--font-text);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-base);
   line-height: 1.6;
   color: var(--ink);
   background: var(--background);
@@ -30,17 +26,6 @@ body {
   transition:
     background-color 0.35s ease,
     color 0.35s ease;
-}
-
-
-a {
-  color: var(--color-accent-5);
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-a:hover {
-  color: var(--color-primary-5);
 }
 
 img {
@@ -57,27 +42,27 @@ button {
 }
 
 section {
-  padding: var(--spacing-5xh) 0;
+  padding: var(--spacing-2x) var(--spacing-4x);
   position: relative;
 }
 
 @media (max-width: 768px) {
   section {
-    padding: var(--spacing-4x) 0;
+    padding: var(--spacing-2x) 0;
   }
 }
 
 .section-eyebrow {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--spacing-half);
   font-family: var(--font-mono);
   font-size: var(--font-size-sm);
-  font-weight: 500;
+  font-weight: var(--font-weight-medium);
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: var(--color-secondary-5);
-  margin-bottom: 16px;
+  margin-bottom: var(--spacing-base);
 }
 
 .section-eyebrow::before {
@@ -98,5 +83,5 @@ section {
   font-size: var(--font-size-base);
   color: var(--ink-soft);
   max-width: 640px;
-  margin-bottom: var(--spacing-3xh);
+  margin-bottom: var(--font-size-3x);
 }
