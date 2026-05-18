@@ -57,7 +57,7 @@ section {
   align-items: center;
   gap: var(--spacing-half);
   font-family: var(--font-mono);
-  font-size: var(--font-size-sm);
+  font-size: clamp(var(--font-size-xs), 1.5vh, var(--font-size-base));
   font-weight: var(--font-weight-medium);
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -74,7 +74,7 @@ section {
 }
 
 .section-title {
-  font-size: clamp(var(--font-size-2x), 4vw, var(--font-size-3x));
+  font-size: clamp(var(--font-size-md), 2vh, var(--font-size-4x));
   line-height: var(--line-height-heading);
   margin-bottom: var(--spacing-base);
 }
@@ -84,4 +84,11 @@ section {
   color: var(--ink-soft);
   max-width: 640px;
   margin-bottom: var(--font-size-3x);
+}
+
+@media (min-width: 360px) {
+  .section-subtitle {
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--spacing-half);
+  }
 }
