@@ -93,6 +93,39 @@
   letter-spacing: -0.005em;
 }
 
+@media (max-width: 480px) {
+  .sobre-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-2xh);
+  }
+
+  .sobre-text p {
+    font-size: var(--font-size-sm);
+  }
+
+  .sobre-text p + p {
+    margin-top: var(--spacing-base);
+  }
+
+  .sobre-text .lead {
+    font-size: var(--font-size-sm);
+    padding-left: var(--spacing-half);
+  }
+
+  .pillars {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-base);
+  }
+
+  .pillar {
+    padding: var(--spacing-half);
+  }
+
+  .pillar h4 {
+    font-size: var(--font-size-sm);
+  }
+}
+
 /* =============================
      LINHAS DE PESQUISA
      ============================= */
@@ -189,6 +222,38 @@
   gap: var(--spacing-2x);
 }
 
+@media (max-width: 480px) {
+  .linhas-list {
+    gap: var(--spacing-base);
+  }
+
+  .linha summary {
+    padding: var(--spacing-half) var(--spacing-base);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-half);
+  }
+
+  .linha-num {
+    font-size: var(--font-size-xs);
+    padding: var(--spacing-half);
+  }
+
+  .linha-title {
+    font-size: var(--font-size-sm);
+  }
+
+  .linha-chev {
+    width: 28px;
+    height: 28px;
+  }
+
+  .linha-body {
+    padding: 0 var(--spacing-base) var(--spacing-base) var(--spacing-base);
+    gap: var(--spacing-md);
+  }
+}
+
 @media (max-width: 720px) {
   .linha-body {
     grid-template-columns: 1fr;
@@ -248,6 +313,25 @@
   color: var(--chip-ink);
   border-radius: var(--radius-pill);
   font-weight: var(--font-weight-medium);
+}
+
+@media (max-width: 480px) {
+  .linha-ancora {
+    padding-left: var(--spacing-half);
+  }
+
+  .linha-desc {
+    font-size: var(--font-size-sm);
+  }
+
+  .linha-temas {
+    margin-top: var(--spacing-half);
+  }
+
+  .tema-chip {
+    font-size: var(--font-size-xs);
+    padding: 0 var(--spacing-half);
+  }
 }
 
 /* =============================
@@ -317,13 +401,13 @@
 }
 
 .membro-card h4 {
-  font-size: 1.125rem;
-  margin-bottom: 4px;
+  font-size: var(--font-size-base);
+  margin-bottom: var(--spacing-half);
 }
 
 .membro-card .cargo {
-  font-family: "JetBrains Mono", monospace;
-  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: var(--font-size-sm);
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--ink-soft);
@@ -331,15 +415,39 @@
 
 .placeholder-tag {
   display: inline-block;
-  margin-top: 16px;
+  margin-top: var(--spacing-base);
   font-family: var(--font-mono);
   font-size: var(--font-size-sm);
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: var(--pill-ink);
   background: var(--pill-background);
-  padding: 4px 10px;
-  border-radius: 4px;
+  padding: var(--spacing-half) var(--spacing-base);
+  border-radius: var(--radius-md);
+}
+
+@media (max-width: 480px) {
+  .membro-avatar {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto var(--spacing-base);
+  }
+
+  .membro-card h4 {
+    font-size: var(--font-size-base);
+    margin-bottom: var(--spacing-half);
+  }
+
+  .membro-card .cargo {
+    font-family: var(--font-logo);
+    font-size: var(--font-size-sm);
+  }
+
+  .placeholder-tag {
+    margin-top: var(--spacing-half);
+    padding: var(--spacing-half);
+    border-radius: var(--radius-md);
+  }
 }
 
 /* =============================
@@ -540,32 +648,34 @@
   color: #fff;
 }
 
-      /* =============================
+/* =============================
      FADE-IN ON SCROLL
      ============================= */
-      .reveal {
-        opacity: 0;
-        transform: translateY(24px);
-        transition: opacity .7s cubic-bezier(.4, 0, .2, 1), transform .7s cubic-bezier(.4, 0, .2, 1);
-      }
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
-      .reveal.in {
-        opacity: 1;
-        transform: none;
-      }
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}
 
-      @media (prefers-reduced-motion: reduce) {
-        .reveal {
-          opacity: 1;
-          transform: none;
-          transition: none;
-        }
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 
-        .hero-tag .dot {
-          animation: none;
-        }
+  .hero-tag .dot {
+    animation: none;
+  }
 
-        html {
-          scroll-behavior: auto;
-        }
-      }
+  html {
+    scroll-behavior: auto;
+  }
+}

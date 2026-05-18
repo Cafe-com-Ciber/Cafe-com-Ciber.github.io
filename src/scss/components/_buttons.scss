@@ -21,6 +21,14 @@
   white-space: nowrap;
 }
 
+@media (max-width: 480px) {
+  .btn {
+    gap: var(--spacing-half);
+    padding: var(--spacing-half);
+    font-size: var(--font-size-sm);
+  }
+}
+
 .btn-primary {
   background: var(--btn-primary-bg);
   color: var(--btn-primary-ink);
