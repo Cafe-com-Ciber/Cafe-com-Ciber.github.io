@@ -1,29 +1,26 @@
 /* =============================
      FOOTER
      ============================= */
-footer {
+.footer-inner {
   background: var(--background-header);
+  display: flex;
+  flex-wrap: wrap;
+    align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-md);
   color: var(--ink);
   padding: 0 var(--spacing-2x);
-  font-size: 0.875rem;
-}
-
-.footer-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: var(--spacing-lg);
+  font-size: var(--font-size-sm);
 }
 
 .footer-brand {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: var(--spacing-half);
   color: var(--ink);
   font-family: var(--font-logo);
   font-weight: var(--font-weight-semibold);
-  font-size: 1rem;
+  font-size: var(--font-size-base);
 }
 
 .footer-brand .nav-logo {
@@ -33,12 +30,12 @@ footer {
 }
 
 .footer-copy {
-  font-size: 0.8125rem;
+  font-size: var(--font-size-sm);
 }
 
 .footer-social {
   display: flex;
-  gap: 10px;
+  gap: var(--font-size-sm);
 }
 
 .footer-social a {
@@ -48,7 +45,7 @@ footer {
   display: grid;
   place-items: center;
   background: rgba(255, 255, 255, 0.08);
-  color: #fff;
+  color: var(--color-white);
   transition:
     background 0.2s ease,
     transform 0.2s ease;
@@ -57,4 +54,25 @@ footer {
 .footer-social a:hover {
   background: rgba(255, 255, 255, 0.18);
   transform: translateY(-2px);
+}
+
+@media (max-width: 360px) {
+  .footer-inner {
+    font-size: var(--font-size-sm);
+    gap: var(--spacing-half);
+  }
+
+  .footer-copy {
+    font-size: var(--font-size-xs);
+  }
+
+  .footer-logo {
+    width: 48px;
+    height: 48px;
+  }
+
+  .footer-social a {
+    width: 38px;
+    height: 38px;
+  }
 }
