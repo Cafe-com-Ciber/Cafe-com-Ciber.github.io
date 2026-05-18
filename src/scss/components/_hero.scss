@@ -4,7 +4,7 @@
 .hero {
   position: relative;
   min-height: 100vh;
-  padding: var(--font-size-5xh) var(--spacing-2x) var(--spacing-base);
+  padding: var(--spacing-9x) var(--spacing-2x) var(--spacing-2xh);
   background: #08041a;
   color: var(--color-white);
   overflow: hidden;
@@ -75,7 +75,6 @@
 .hero-inner {
   position: relative;
   z-index: 2;
-  max-width: auto;
 }
 
 .hero-tag {
@@ -118,10 +117,11 @@
 }
 
 .hero h1 {
-  font-size: clamp(var(--font-size-2xh), 3.5vw, var(--font-size-8x));
+  font-size: 4rem;
   line-height: 1.05;
   color: #fff;
-  margin-bottom: var(--spacing-md);
+  margin-bottom: 24px;
+  letter-spacing: -0.02em;
 }
 
 .hero h1 .accent {
@@ -131,10 +131,11 @@
   -webkit-text-fill-color: transparent;
   font-style: italic;
   font-weight: var(--font-weight-bold);
+  padding-right: 0.15em;
 }
 
 .hero-tagline {
-  font-size: clamp(var(--font-size-base), 3.5vw, var(--font-size-md));
+  font-size: var(--font-size-md);
   color: rgba(255, 255, 255, 0.85);
   max-width: 80%;
   margin-bottom: var(--spacing-base);
@@ -178,6 +179,34 @@
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: rgba(255, 255, 255, 0.6);
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: var(--spacing-7x) var(--spacing-base) var(--spacing-base);
+  }
+
+  .hero h1 {
+    font-size: var(--font-size-2x);
+  }
+
+  .hero h1 .accent {
+    font-size: var(--font-size-md);
+  }
+
+  .hero-tagline {
+    font-size: var(--font-size-base);
+  }
+
+  .hero-sub {
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--spacing-base);
+  }
+
+  .hero-ctas {
+    font-size: var(--font-size-md);
+    gap: var(--spacing-half);
+  }
 }
 
 /* =============================
